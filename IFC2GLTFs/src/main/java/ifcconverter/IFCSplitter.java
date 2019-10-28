@@ -45,50 +45,14 @@ public class IFCSplitter {
 	public void splitWall(Long roid, String oid, String ifcpath, String jsonpath) {
 		// download the specific wall with its openings
 		String query = "{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcProduct\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
-				"\"include\": {\r\n" + 
-				"    \"type\": \"IfcWall\",\r\n" + 
-				"    \"field\": \"HasOpenings\",\r\n" + 
-				"    \"include\": {\r\n" + 
-				"      \"type\": \"IfcRelVoidsElement\",\r\n" + 
-				"      \"field\": \"RelatedOpeningElement\",\r\n" + 
-				"      \"include\": {\r\n" + 
-				"        \"type\": \"IfcOpeningElement\",\r\n" + 
-				"        \"includes\": [\r\n" + 
-				"          \"validifc:AllProperties\",\r\n" + 				
-				"          \"validifc:ContainedInStructure\",\r\n" + 
-				"          \"validifc:OwnerHistory\",\r\n" + 
-				"          \"validifc:Representation\",\r\n" + 
-				"          \"validifc:ObjectPlacement\"\r\n" + 
-				"        ]\r\n" + 
-				"      },\r\n" + 
-				"      \"includes\": [\r\n" +
-				"        \"validifc:AllProperties\",\r\n" + 	
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\"\r\n" + 
-				"      ]\r\n" + 
-				"    },\r\n" + 
-				"    \"includes\": [\r\n" + 
-				"      \"validifc:AllProperties\",\r\n" + 	
-				"      \"validifc:ContainedInStructure\",\r\n" + 
-				"      \"validifc:OwnerHistory\",\r\n" + 
-				"      \"validifc:Representation\",\r\n" + 
-				"      \"validifc:ObjectPlacement\"\r\n" + 
-				"    ]\r\n" + 
-				"  },\r\n" + 
-				"\"includes\": [\r\n" + 
-				"    \"validifc:AllProperties\",\r\n" + 	
-				"    \"validifc:ContainedInStructure\",\r\n" + 
-				"    \"validifc:OwnerHistory\",\r\n" + 
-				"    \"validifc:Representation\",\r\n" + 
-				"    \"validifc:ObjectPlacement\"\r\n" + 
+				"  \"includes\": [\r\n" + 
+				"    \"ifc2x3tc1-stdlib:AllProperties\",\r\n" + 	
+				"    \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ObjectPlacement\"\r\n" + 
 				"  ],\r\n" + 
-				"\"oid\":" + oid + "\r\n" + 
+				"  \"oid\":" + oid + "\r\n" + 
 				"}";
 		Path file = Paths.get(ifcpath,"wall" + WallsCount +".ifc");
 		Path jsonfile = Paths.get(jsonpath,"wall" + WallsCount +".json");
@@ -153,41 +117,12 @@ public class IFCSplitter {
 		// download the specific slab with its openings
 		String query = "\r\n" + 
 				"{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcSlab\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
-				"  \"include\": {\r\n" + 
-				"    \"type\": \"IfcSlab\",\r\n" + 
-				"    \"field\": \"HasOpenings\",\r\n" + 
-				"    \"include\": {\r\n" + 
-				"      \"type\": \"IfcRelVoidsElement\",\r\n" + 
-				"      \"field\": \"RelatedOpeningElement\",\r\n" + 
-				"      \"include\": {\r\n" + 
-				"        \"type\": \"IfcOpeningElement\"\r\n" + 
-				"      },\r\n" + 
-				"      \"includes\": [\r\n" + 
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\",\r\n" + 
-				"        \"validifc:AllProperties\"\r\n" + 
-				"      ]\r\n" + 
-				"    },\r\n" + 
-				"    \"includes\": [\r\n" + 
-				"      \"validifc:ContainedInStructure\",\r\n" + 
-				"      \"validifc:OwnerHistory\",\r\n" + 
-				"      \"validifc:Representation\",\r\n" + 
-				"      \"validifc:ObjectPlacement\",\r\n" + 
-				"      \"validifc:AllProperties\"\r\n" + 
-				"    ]\r\n" + 
-				"  },\r\n" + 
 				"  \"includes\": [\r\n" + 
-				"    \"validifc:ContainedInStructure\",\r\n" + 
-				"    \"validifc:OwnerHistory\",\r\n" + 
-				"    \"validifc:Representation\",\r\n" + 
-				"    \"validifc:ObjectPlacement\",\r\n" + 
-				"    \"validifc:AllProperties\"\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ObjectPlacement\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:AllProperties\"\r\n" + 
 				"  ],\r\n" + 
 				"\"oid\":" + oid + "\r\n" + 
 				"}";
@@ -207,39 +142,12 @@ public class IFCSplitter {
 	public void splitStair (Long roid, String oid, String ifcpath, String jsonpath) {
 		// download the specific stair with all of its aggregate components (e.g. slab, stair flight, etc.)
 		String query = "{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcStair\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
-				"  \"include\": {\r\n" + 
-				"    \"type\": \"IfcStair\",\r\n" + 
-				"    \"field\": \"IsDecomposedBy\",\r\n" + 
-				"    \"include\": {\r\n" + 
-				"      \"type\": \"IfcRelAggregates\",\r\n" + 
-				"      \"field\": \"RelatedObjects\",\r\n" + 
-				"      \"includes\": [\r\n" + 
-				"        \"validifc:AllProperties\",\r\n" +
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\"\r\n" + 
-				"      ]\r\n" + 
-				"\r\n" + 
-				"    },\r\n" + 
-				"    \"includes\": [\r\n" + 
-				"      \"validifc:AllProperties\",\r\n" +
-				"      \"validifc:ContainedInStructure\",\r\n" + 
-				"      \"validifc:OwnerHistory\",\r\n" + 
-				"      \"validifc:Representation\",\r\n" + 
-				"      \"validifc:ObjectPlacement\"\r\n" + 
-				"    ]\r\n" + 
-				"  },\r\n" + 
 				"  \"includes\": [\r\n" + 
-				"    \"validifc:AllProperties\",\r\n" +
-				"    \"validifc:ContainedInStructure\",\r\n" + 
-				"    \"validifc:OwnerHistory\",\r\n" + 
-				"    \"validifc:Representation\",\r\n" + 
-				"    \"validifc:ObjectPlacement\"\r\n" + 
+				"    \"ifc2x3tc1-stdlib:AllProperties\",\r\n" +
+				"    \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ObjectPlacement\"\r\n" + 
 				"  ],\r\n" + 
 				"\"oid\":" + oid + "\r\n" + 
 				"}";
@@ -321,39 +229,12 @@ public class IFCSplitter {
 	public void splitRamp(Long roid, String oid, String ifcpath, String jsonpath) {
 		// download the specific ramp with all of its aggregate components (e.g. railings)
 		String query = "{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcRamp\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
-				"  \"include\": {\r\n" + 
-				"    \"type\": \"IfcRamp\",\r\n" + 
-				"    \"field\": \"IsDecomposedBy\",\r\n" + 
-				"    \"include\": {\r\n" + 
-				"      \"type\": \"IfcRelAggregates\",\r\n" + 
-				"      \"field\": \"RelatedObjects\",\r\n" + 
-				"      \"includes\": [\r\n" + 
-				"        \"validifc:AllProperties\",\r\n" +
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\"\r\n" + 
-				"      ]\r\n" + 
-				"\r\n" + 
-				"    },\r\n" + 
-				"    \"includes\": [\r\n" + 
-				"      \"validifc:AllProperties\",\r\n" +
-				"      \"validifc:ContainedInStructure\",\r\n" + 
-				"      \"validifc:OwnerHistory\",\r\n" + 
-				"      \"validifc:Representation\",\r\n" + 
-				"      \"validifc:ObjectPlacement\"\r\n" + 
-				"    ]\r\n" + 
-				"  },\r\n" + 
 				"  \"includes\": [\r\n" + 
-				"    \"validifc:AllProperties\",\r\n" +
-				"    \"validifc:ContainedInStructure\",\r\n" + 
-				"    \"validifc:OwnerHistory\",\r\n" + 
-				"    \"validifc:Representation\",\r\n" + 
-				"    \"validifc:ObjectPlacement\"\r\n" + 
+				"    \"ifc2x3tc1-stdlib:AllProperties\",\r\n" +
+				"    \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ObjectPlacement\"\r\n" + 
 				"  ],\r\n" + 
 				"\"oid\":" + oid + "\r\n" + 
 				"}";;
@@ -403,16 +284,12 @@ public class IFCSplitter {
 	private String oidQuery(String oid) {
 		// General query for most objects
 		String query = "{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcProduct\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
 				"  \"includes\": [\r\n" + 
-				"        \"validifc:AllProperties\",\r\n" + 	
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\"\r\n" + 
+				"        \"ifc2x3tc1-stdlib:AllProperties\",\r\n" + 	
+				"        \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"        \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"        \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"        \"ifc2x3tc1-stdlib:ObjectPlacement\"\r\n" + 
 				"  ],\r\n" + 
 				"\"oid\":" + oid + "\r\n" +  
 				"}";
@@ -422,39 +299,12 @@ public class IFCSplitter {
 	public void splitCurtainWalls(Long roid, String oid, String ifcpath, String jsonpath) {
 		// download the specific curtain wall with all of its aggregate components (e.g. members and plates)
 		String query = "{\r\n" + 
-				"  \"type\": {\r\n" + 
-				"    \"name\": \"IfcCurtainWall\",\r\n" + 
-				"    \"includeAllSubTypes\": true\r\n" + 
-				"  },\r\n" + 
-				"  \"include\": {\r\n" + 
-				"    \"type\": \"IfcCurtainWall\",\r\n" + 
-				"    \"field\": \"IsDecomposedBy\",\r\n" + 
-				"    \"include\": {\r\n" + 
-				"      \"type\": \"IfcRelAggregates\",\r\n" + 
-				"      \"field\": \"RelatedObjects\",\r\n" + 
-				"      \"includes\": [\r\n" + 
-				"        \"validifc:AllProperties\",\r\n" +
-				"        \"validifc:ContainedInStructure\",\r\n" + 
-				"        \"validifc:OwnerHistory\",\r\n" + 
-				"        \"validifc:Representation\",\r\n" + 
-				"        \"validifc:ObjectPlacement\"\r\n" + 
-				"      ]\r\n" + 
-				"\r\n" + 
-				"    },\r\n" + 
-				"    \"includes\": [\r\n" + 
-				"      \"validifc:AllProperties\",\r\n" +
-				"      \"validifc:ContainedInStructure\",\r\n" + 
-				"      \"validifc:OwnerHistory\",\r\n" + 
-				"      \"validifc:Representation\",\r\n" + 
-				"      \"validifc:ObjectPlacement\"\r\n" + 
-				"    ]\r\n" + 
-				"  },\r\n" + 
 				"  \"includes\": [\r\n" + 
-				"    \"validifc:AllProperties\",\r\n" +
-				"    \"validifc:ContainedInStructure\",\r\n" + 
-				"    \"validifc:OwnerHistory\",\r\n" + 
-				"    \"validifc:Representation\",\r\n" + 
-				"    \"validifc:ObjectPlacement\"\r\n" + 
+				"    \"ifc2x3tc1-stdlib:AllProperties\",\r\n" +
+				"    \"ifc2x3tc1-stdlib:ContainedInStructure\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:OwnerHistory\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:Representation\",\r\n" + 
+				"    \"ifc2x3tc1-stdlib:ObjectPlacement\"\r\n" + 
 				"  ],\r\n" + 
 				"\"oid\":" + oid + "\r\n" + 
 				"}";

@@ -32,7 +32,10 @@ var whiteOpaqueMaterial = new Material({
     ambient : [0.2, 0.2, 0.2, 1.0]
 });
 
-var modelFolder = ''; // Enter the model folder name
+var modelFolder = 'model'; // Enter the model folder name
+console.log(". = %s", path.resolve("."));
+console.log("./data/model = %s", path.resolve("./data/model"));
+console.log("__dirname = %s", path.resolve(__dirname));
 
 /**
  * Create a tileset that uses a batch table hierarchy.

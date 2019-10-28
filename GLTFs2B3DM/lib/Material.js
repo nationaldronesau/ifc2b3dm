@@ -37,12 +37,13 @@ function Material(options) {
  */
 Material.fromGltf = function(material) {
     //var values = material.values;
-    var values = material.extensions.KHR_materials_common.values;
-    return new Material({
-        ambient : values.ambient,
-        diffuse : values.diffuse,
-        emission : values.emission,
-        specular : values.specular,
-        shininess : values.shininess
-    });
+    //var values = material.extensions.KHR_materials_common.values;
+    // return new Material({
+    //     ambient : values.ambient,
+    //     diffuse : values.diffuse,
+    //     emission : values.emission,
+    //     specular : values.specular,
+    //     shininess : values.shininess
+    // });
+    return new Material();
 };

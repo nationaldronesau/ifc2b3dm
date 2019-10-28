@@ -36,18 +36,18 @@ import com.google.gson.stream.JsonReader;
  * 
  */
 public class Main {
-	private static String ADDRESS = "http://localhost:2020"; // Enter your BimServer address
-	private static String USERNAME = ""; //BimServer Username
-	private static String PASSWORD = ""; //BimServer Password
-	private static String PROJECT = "";  // Model name on BimServer
-	public static String CONVERTER_PATH = ""; //Enter your converter path
+	private static String ADDRESS = "http://localhost:8082"; // Enter your BimServer address
+	private static String USERNAME = "tm.jalal@gmail.com"; //BimServer Username
+	private static String PASSWORD = "password"; //BimServer Password
+	private static String PROJECT = "SampleIFC";  // Model name on BimServer
+	public static String CONVERTER_PATH = "C:\\Users\\Thornton\\Desktop\\Work\\ifc\\Converter\\"; //Enter your converter path
 	public static String JSON_PATH = CONVERTER_PATH + PROJECT + "\\" + PROJECT + ".json";
 	public static String IFCS_PATH = CONVERTER_PATH + PROJECT + "\\" + "IFCs\\";
 	public static String OBJS_PATH = CONVERTER_PATH + PROJECT + "\\" + "OBJs\\";
 	public static String GLTFS_PATH = CONVERTER_PATH + PROJECT + "\\" + "GLTFs\\";
 	public static String SJSONS_PATH = CONVERTER_PATH + PROJECT + "\\" + "SJSONs\\";
 	public static String OBJ2GLTFPATH = CONVERTER_PATH + "obj2gltf\\";
-	public static String NODE_PATH = "\"C:\\Program Files\\nodejs\\node.exe\"";
+	public static String NODE_PATH = "C:\\\"Program Files\"\\nodejs\\node.exe";
 	public static void main(String[] args) {
 		try {
 			// Connect to the server
@@ -94,8 +94,8 @@ public class Main {
 					reader.nextName(); //_t
 					String type = reader.nextString(); //type
 					
-					System.out.println(oid);
-					System.out.println(type);
+					//System.out.println(oid);
+					//System.out.println(type);
 
 					
 					if (type.equals("IfcWallStandardCase") || type.equals("IfcWall")) {
